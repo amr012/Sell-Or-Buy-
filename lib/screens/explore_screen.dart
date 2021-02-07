@@ -18,7 +18,7 @@ class ExploreScreen extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 40, left: 30, right: 30),
+            padding: EdgeInsets.only(top: 50, left: 30, right: 30),
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.grey.shade200,
