@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_ecommerce/components/custom_product_card.dart';
 import 'package:my_ecommerce/components/custom_text.dart';
 import 'package:my_ecommerce/constants.dart';
+import 'package:my_ecommerce/controllers/category_conroller.dart';
 
 class ExploreScreen extends StatelessWidget {
+  final _controller = Get.put(CategoryController());
   @override
   Widget build(BuildContext context) {
     List<String> names = [
@@ -45,15 +48,16 @@ class ExploreScreen extends StatelessWidget {
           ),
           Container(
             height: 120,
-            child: ListView.builder(
+            child: Obx(()=>ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: names.length,
+                itemCount: _controller.categoryModel.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         Container(
+                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                               color: Colors.grey.shade100,
                               borderRadius: BorderRadius.circular(50)),
@@ -61,19 +65,22 @@ class ExploreScreen extends StatelessWidget {
                           width: 60,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                              "assets/images/icon_men_shoes.png",
+                            child: Image.network(
+                              _controller.categoryModel[index].image,
+                              width: double.infinity,
+                              height: double.infinity,
                             ),
                           ),
                         ),
                         SizedBox(height: 10),
                         CustomText(
-                          text: names[index],
+                          fontWeight: FontWeight.w500,
+                          text: _controller.categoryModel[index].name,
                         )
                       ],
                     ),
                   );
-                }),
+                })),
           ),
           Padding(
             padding: const EdgeInsets.only(
