@@ -7,12 +7,13 @@ import 'custom_text.dart';
 class CustomFlatButton extends StatelessWidget {
   final String text;
   final Function onPress;
-  CustomFlatButton({this.text,this.onPress});
+  final double width;
+  CustomFlatButton({this.text,this.onPress,this.width});
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      width: MediaQuery.of(context).size.width,
+      width: width,
       child: FlatButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           onPressed: onPress,

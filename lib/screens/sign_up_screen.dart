@@ -77,6 +77,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 60,
                     ),
                     CustomFlatButton(
+                      width: double.infinity,
                       text: "SIGN UP",
                       onPress: () {
                         _controller.registerValidation(context);

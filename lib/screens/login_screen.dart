@@ -83,6 +83,7 @@ class LoginScreen extends StatelessWidget {
                         height: 10,
                       ),
                       CustomFlatButton(
+                        width: double.infinity,
                         text: "SIGN IN",
                         onPress: () {
                           _controller.loginValidation(context);

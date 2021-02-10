@@ -7,6 +7,7 @@ import 'package:my_ecommerce/components/loading_widget.dart';
 import 'package:my_ecommerce/constants.dart';
 import 'package:my_ecommerce/controllers/category_conroller.dart';
 import 'package:my_ecommerce/enums/view_state.dart';
+import 'package:my_ecommerce/screens/product_details_screen.dart';
 import 'package:octo_image/octo_image.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -114,13 +115,18 @@ class ExploreScreen extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: _controller.productModel.length,
                           itemBuilder: (context, index) {
-                            return CustomProductsCard(
-                              image: _controller.productModel[index].image,
-                              name: _controller.productModel[index].name,
-                              description:
-                                  _controller.productModel[index].description,
-                              price:
-                                  _controller.productModel[index].price + " \$",
+                            return GestureDetector(
+                              onTap: (){
+                                Get.to(ProductDetailsScreen(productModel: _controller.productModel[index],));
+                              },
+                              child: CustomProductsCard(
+                                image: _controller.productModel[index].image,
+                                name: _controller.productModel[index].name,
+                                description:
+                                    _controller.productModel[index].description,
+                                price:
+                                    _controller.productModel[index].price + " \$",
+                              ),
                             );
                           },
                         )),
