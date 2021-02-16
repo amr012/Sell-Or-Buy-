@@ -1,13 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:my_ecommerce/components/custom_flat_button.dart';
+import 'package:get/get.dart';
+import 'package:my_ecommerce/components/custom_row.dart';
 import 'package:my_ecommerce/components/custom_text.dart';
 import 'package:my_ecommerce/constants.dart';
+import 'package:my_ecommerce/controllers/database_controller.dart';
+import 'package:my_ecommerce/models/cart_product_model.dart';
 import 'package:my_ecommerce/models/products_model.dart';
 import 'package:octo_image/octo_image.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
+  final _controller = Get.put(DataBaseController());
   final ProductModel productModel;
 
   ProductDetailsScreen({this.productModel});
@@ -85,37 +89,19 @@ class ProductDetailsScreen extends StatelessWidget {
               )
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 15, left: 20, top: 10),
-                child: Column(
-                  children: [
-                    CustomText(
-                      text: "PRICE",
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomText(
-                      text: "\$" + productModel.price,
-                      color: K.MAIN_COLOR,
-                      fontWeight: FontWeight.bold,
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: CustomFlatButton(
-                  width: 150,
-                  text: "ADD",
-                  onPress: () {},
-                ),
-              )
-            ],
+          CustomRow(
+            text: "PRICE",
+            price: productModel.price,
+            buttonText: "ADD",
+            buttonWidth: 140,
+            onPress: (){
+              print(productModel.name);
+              print(productModel.image.toString());
+              print(productModel.price);
+              print(productModel.size);
+              _controller.insertProduct(CartProductModel(name: productModel.name,
+              image: productModel.image,price: productModel.price,quantity: 1));
+            },
           )
         ],
       ),
