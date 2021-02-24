@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 class DataBaseController extends BaseController{
 
   final _cartProductModel = <CartProductModel>[].obs;
-  RxDouble _totalPrice = 0.0.obs;
+  double _totalPrice = 0.0;
 
   List<CartProductModel> get cartProductModel => _cartProductModel;
-  double get totalPrice => _totalPrice.value;
+  double get totalPrice => _totalPrice;
 
 
 
@@ -31,9 +31,9 @@ class DataBaseController extends BaseController{
 
   getTotalPrice(){
     for(int i =0 ; i < _cartProductModel.length ; i++){
-      _totalPrice.value += double.parse(_cartProductModel[i].price)  ;
+      _totalPrice += double.parse(_cartProductModel[i].price)  ;
   }
-    print(_totalPrice.value);
+    print(_totalPrice);
   }
 
 }

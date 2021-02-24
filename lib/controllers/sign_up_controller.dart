@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:my_ecommerce/controllers/auth_controller.dart';
 import 'package:my_ecommerce/controllers/base_controller.dart';
 import 'package:my_ecommerce/models/user_model.dart';
 import 'package:my_ecommerce/models/validation_item.dart';
 import 'package:my_ecommerce/services/auth_services.dart';
 import 'package:my_ecommerce/utilities/utility.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SignUpController extends BaseController {
   AuthServices authServices = new AuthServices();
@@ -14,6 +18,7 @@ class SignUpController extends BaseController {
   final _email = ValidationItem().obs;
   final _password = ValidationItem().obs;
   final _image = Rx<String>();
+  final _picker =ImagePicker();
   RxBool _saving = false.obs;
 
   ValidationItem get name => _name.value;
@@ -63,9 +68,10 @@ class SignUpController extends BaseController {
         _password.value.isValid()) {
       _saving.value = true;
       UserModel user = await authServices.register(UserModel(
+          image: _image.value,
           name: _name.value.value,
           email: _email.value.value,
-          password: _password.value.value));
+          password: _password.value.value),image);
       _saving.value = false;
       AuthController.to.changeLoggedIn(true, user);
     } else {
@@ -73,4 +79,45 @@ class SignUpController extends BaseController {
           "Please Check The Data You Have Entered!", "Data Error", context);
     }
   }
+
+  Future<bool> requestImagePermission() async {
+    final permission = await [
+      Permission.storage,
+      Permission.photos
+    ].request();
+
+    if(Platform.isIOS && permission[Permission.photos].isGranted){
+      return true;
+    }
+    else if(Platform.isAndroid && permission[Permission.storage].isGranted){
+      return true;
+    }
+    else{
+      return false;
+    }
+
+  }
+
+  getImage() async {
+    final state = await requestImagePermission();
+    if(state ){
+      try{
+        PickedFile pickedFile;
+        pickedFile = await _picker.getImage(source: ImageSource.gallery);
+        if(pickedFile != null) {
+          _image.value = pickedFile.path;
+        }
+
+      }
+      catch(e) {
+        print(e.toString());
+      }
+    }
+    else{
+    print("Must Be Allow!");
+    }
+
+
+  }
+
 }

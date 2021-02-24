@@ -15,14 +15,14 @@ class UserModel {
     name = json['name'];
     email = json['email'];
     password = json['password'];
-    // image = json['image'];
+    image = json['image'];
   }
   Map<String,dynamic> toJson(){
     var json = <String,dynamic>{};
     json['name'] = name;
     json['email'] = email;
     json['password'] = password;
-    // json['image'] = image;
+    json['image'] = image;
 
     return json;
   }
