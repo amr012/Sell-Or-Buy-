@@ -74,6 +74,12 @@ flutter:
      - assets/images/user_icon1.png
      - assets/images/image_placeholder.png
      - assets/images/image_picker.jpg
+     - assets/images/Icon_Alert.png
+     - assets/images/icon_edit_profile.png
+     - assets/images/Icon_Exit.png
+     - assets/images/Icon_History.png
+     - assets/images/Icon_Location.png
+     - assets/images/Icon_Payment.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
