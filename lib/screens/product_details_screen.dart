@@ -101,6 +101,8 @@ class ProductDetailsScreen extends StatelessWidget {
               print(productModel.size);
               _controller.insertProduct(CartProductModel(name: productModel.name,
               image: productModel.image,price: productModel.price,quantity: 1));
+
+              _controller.getAllProducts();
             },
           )
         ],

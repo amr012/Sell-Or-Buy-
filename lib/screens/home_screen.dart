@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:my_ecommerce/controllers/home_controller.dart';
 import 'package:my_ecommerce/screens/account_screen.dart';
@@ -65,8 +66,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     icon: Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child: Image.asset(
-                        "assets/images/cart_icon1.png",
+                      child: SvgPicture.asset(
+                        "assets/images/cart_icon_svg.svg",
                         fit: BoxFit.fill,
                       ),
                     ),

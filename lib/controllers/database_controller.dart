@@ -12,10 +12,13 @@ class DataBaseController extends BaseController{
   double get totalPrice => _totalPrice;
 
 
-
-  DataBaseController(){
+  @override
+  void onInit() {
+    super.onInit();
     getAllProducts();
-  }
+  } // DataBaseController(){
+  //   getAllProducts();
+  // }
 
   insertProduct(CartProductModel cartProductModel) async {
     var db = DataBaseServices.db;
@@ -30,6 +33,7 @@ class DataBaseController extends BaseController{
   }
 
   getTotalPrice(){
+    _totalPrice =0;
     for(int i =0 ; i < _cartProductModel.length ; i++){
       _totalPrice += double.parse(_cartProductModel[i].price)  ;
   }

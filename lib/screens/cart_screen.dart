@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:my_ecommerce/components/custom_row.dart';
 import 'package:my_ecommerce/components/custom_text.dart';
@@ -11,7 +12,16 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body:  _controller.cartProductModel.length ==0
+          ? Column(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset("assets/images/empty_cart_placeholder.svg",height: 200,width: 200,),
+              SizedBox(height: 20,),
+              CustomText(alignment: Alignment.center,
+                text: "Empty Cart",fontSize: 30,fontWeight: FontWeight.w600,)
+            ],
+          )
+          :Obx(()=>Column(
         children: [
           Expanded(
             child: Container(
@@ -33,14 +43,16 @@ class CartScreen extends StatelessWidget {
                                 )),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: CustomText(
-                                     text: _controller.cartProductModel[index].name,
+                                    text: _controller.cartProductModel[index].name,
                                     fontSize: 22,
                                   ),
                                 ),
+                                SizedBox(height: 10,),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: CustomText(
@@ -85,7 +97,7 @@ class CartScreen extends StatelessWidget {
           )
 
         ],
-      ),
+      )),
     );
   }
 }

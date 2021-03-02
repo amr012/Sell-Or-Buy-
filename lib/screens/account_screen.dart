@@ -1,9 +1,4 @@
-
-
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_ecommerce/components/custom_list_tile.dart';
 import 'package:my_ecommerce/components/custom_network_image.dart';
