@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_ecommerce/components/custom_flat_button.dart';
 import 'package:my_ecommerce/constants.dart';
 import 'package:my_ecommerce/controllers/ststus_change_controller.dart';
 import 'package:my_ecommerce/screens/status_change/add_address_screen.dart';
@@ -110,14 +111,12 @@ class StatusChangeHorizontal extends StatelessWidget {
                   : SummaryScreen()
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.skip_next),
-            onPressed: () {
-              print(controller.processIndex);
-
+          floatingActionButton: CustomFlatButton(
+            text: "NEXT",
+            width: 150,
+            onPress: (){
               controller.getPage();
             },
-            backgroundColor: inProgressColor,
           ),
         ));
   }

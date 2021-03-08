@@ -7,10 +7,14 @@ import 'package:my_ecommerce/screens/status_change/finish_screen.dart';
 class StatusChangeController extends BaseController{
   int _processIndex = 0;
   Pages _pages = Pages.DeliveryTime;
+  Delivery _delivery = Delivery.StandardDelivery;
+
 
   Pages get pages => _pages;
 
   int get processIndex => _processIndex;
+
+  Delivery get delivery => _delivery;
 
   Color getColor(int index) {
     if (index == _processIndex) {
@@ -33,5 +37,10 @@ class StatusChangeController extends BaseController{
     }
     update();
   }
+
+ getDelivery(Delivery value){
+    _delivery = value ;
+    update();
+ }
 
 }
