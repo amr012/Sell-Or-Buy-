@@ -6,6 +6,7 @@ import 'package:my_ecommerce/components/custom_row.dart';
 import 'package:my_ecommerce/components/custom_text.dart';
 import 'package:my_ecommerce/constants.dart';
 import 'package:my_ecommerce/controllers/database_controller.dart';
+import 'package:my_ecommerce/screens/status_change/satus_change_screen.dart';
 
 class CartScreen extends StatelessWidget {
   final _controller = Get.put(DataBaseController());
@@ -93,7 +94,9 @@ class CartScreen extends StatelessWidget {
             buttonWidth: 150,
             buttonText: "CHECKOUT",
             price: _controller.totalPrice.toString(),
-            onPress: (){},
+            onPress: (){
+              Get.to(StatusChangeHorizontal());
+            },
           )
 
         ],

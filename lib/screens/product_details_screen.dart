@@ -82,7 +82,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 child: AutoSizeText(
-                   productModel.description,
+                   productModel.description ,
                   maxLines: 10,
                   style: TextStyle(fontSize: 18),
                 ),
