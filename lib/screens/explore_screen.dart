@@ -42,7 +42,7 @@ class ExploreScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 20),
                     child: CustomText(
-                      color: K.MAIN_COLOR,
+                      color: Colors.black,
                       text: "Categories",
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class ExploreScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: 10),
                                 CustomText(
-                                  fontWeight: FontWeight.w500,
+
                                   text: _controller.categoryModel[index].name,
                                 )
                               ],
@@ -125,7 +125,7 @@ class ExploreScreen extends StatelessWidget {
                                 description:
                                     _controller.productModel[index].description,
                                 price:
-                                    _controller.productModel[index].price + " \$",
+                                "\$" +  _controller.productModel[index].price ,
                               ),
                             );
                           },

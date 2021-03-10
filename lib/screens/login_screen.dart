@@ -64,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                       Obx(()=>CustomTextField(
                         text: "Password :",
                         label: "Enter Your Password",
+
                         isPassword: true,
                         type: TextInputType.visiblePassword,
                         errorLabel: _controller.password.error,

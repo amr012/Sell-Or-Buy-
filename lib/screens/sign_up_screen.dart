@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Obx(() => CustomTextField(
                           text: "Name",
-                          label: 'meroo',
+                          label: 'enter your name',
                           onChanged: (v) {
                             _controller.chaneName(v);
                           },
@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Obx(() => CustomTextField(
                           text: "Email",
-                          label: 'amr@gmail.com',
+                          label: 'enter your email',
                           onChanged: (v) {
                             _controller.changeEmail(v);
                           },
@@ -92,7 +92,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Obx(() => CustomTextField(
                           text: "Password",
-                          label: '**********',
+                          label: 'enter your password',
                           onChanged: (v) {
                             _controller.changePassword(v);
                           },

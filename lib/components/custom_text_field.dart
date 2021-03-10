@@ -47,7 +47,7 @@ class CustomTextField extends StatelessWidget {
           CustomText(
             text: text,
             fontSize: 20,
-            color: K.MAIN_COLOR,
+            color: Colors.black,
           ),
 
           Container(
