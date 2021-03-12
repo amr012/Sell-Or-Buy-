@@ -91,6 +91,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 30,
                     ),
                     Obx(() => CustomTextField(
+                      isPassword: true,
                           text: "Password",
                           label: 'enter your password',
                           onChanged: (v) {

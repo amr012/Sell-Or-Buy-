@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_ecommerce/components/custom_row.dart';
+import 'package:my_ecommerce/components/custom_snack_bar.dart';
 import 'package:my_ecommerce/components/custom_text.dart';
 import 'package:my_ecommerce/constants.dart';
 import 'package:my_ecommerce/controllers/database_controller.dart';
@@ -101,7 +102,7 @@ class ProductDetailsScreen extends StatelessWidget {
               print(productModel.size);
               _controller.insertProduct(CartProductModel(name: productModel.name,
               image: productModel.image,price: productModel.price,quantity: 1));
-
+              CustomSnackBar(context: context,);
               _controller.getAllProducts();
             },
           )

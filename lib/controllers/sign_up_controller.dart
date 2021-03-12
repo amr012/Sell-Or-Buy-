@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -65,7 +66,8 @@ class SignUpController extends BaseController {
   registerValidation(BuildContext context) async {
     if (_name.value.isValid() &&
         _email.value.isValid() &&
-        _password.value.isValid()) {
+        _password.value.isValid()
+     && EmailValidator.validate(_email.value.value)) {
       _saving.value = true;
       UserModel user = await authServices.register(UserModel(
           image: _image.value,

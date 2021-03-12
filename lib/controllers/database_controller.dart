@@ -40,4 +40,10 @@ class DataBaseController extends BaseController{
     print(_totalPrice);
   }
 
+  deleteProduct(String name) async {
+    var db = DataBaseServices.db;
+    await db.deleteProduct(name);
+    await getAllProducts();
+  }
+
 }

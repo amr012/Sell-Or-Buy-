@@ -15,7 +15,6 @@ class AccountScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 40),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
                   clipBehavior: Clip.antiAlias,
@@ -31,6 +30,7 @@ class AccountScreen extends StatelessWidget {
                       : Image.asset("assets/images/image_placeholder.png")
 
                 ),
+                SizedBox(width: 20,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -50,31 +50,31 @@ class AccountScreen extends StatelessWidget {
             text: "Edit Profile",
             onPress: (){},
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 12,),
           CustomListTile(
             iconImage: "assets/images/Icon_Location.png",
             text: "Shipping Address",
             onPress: (){},
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 12,),
           CustomListTile(
             iconImage: "assets/images/Icon_History.png",
             text: "Order History",
             onPress: (){},
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 12,),
           CustomListTile(
             iconImage: "assets/images/Icon_Payment.png",
             text: "Cards",
             onPress: (){},
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 12,),
           CustomListTile(
             iconImage: "assets/images/Icon_Alert.png",
             text: "Notifications",
             onPress: (){},
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 12,),
           CustomListTile(
             iconImage: "assets/images/Icon_Exit.png",
             text: "Log Out",

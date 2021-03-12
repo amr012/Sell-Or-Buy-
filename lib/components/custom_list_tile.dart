@@ -15,10 +15,10 @@ class CustomListTile extends StatelessWidget {
         child: ListTile(
           leading: Image.asset(iconImage),
           title: CustomText(
-            text: text,fontSize: 20,fontWeight: FontWeight.w400,
+            text: text,fontSize: 18,fontWeight: FontWeight.w400,
             color: Colors.black,),
           trailing: Icon(Icons.arrow_forward_ios,color: Colors.black,
-          size: 17,),
+          size: 15,),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:my_ecommerce/controllers/auth_controller.dart';
@@ -39,7 +40,9 @@ class LoginController {
   loginValidation(BuildContext context) async {
     if (_email.value.isValid() &&
         _password.value.isValid() &&
-        _email.value.value.isEmail) {
+        _email.value.value.isEmail &&
+       EmailValidator.validate(_email.value.value)
+    ) {
       _isSaving.value = true;
       UserModel user =
           await _authServices.login(_email.value.value, _password.value.value);

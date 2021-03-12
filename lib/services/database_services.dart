@@ -48,4 +48,9 @@ class DataBaseServices {
         : [];
     return list;
   }
+  
+  deleteProduct(String name) async {
+    var dbClient = await database;
+    await dbClient.delete(K.tableCartProduct,where:"${K.columnName} = ?" ,whereArgs:[name]  );
+  }
 }
